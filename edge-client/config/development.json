@@ -1,0 +1,51 @@
+{
+  "device_id": "edge-device-001",
+  "federation_server_url": "http://localhost:5000",
+  "backend_api_url": "http://localhost:8080",
+  
+  "sensors": {
+    "heart_rate": {
+      "enabled": true,
+      "pin": null,
+      "simulation_mode": true
+    },
+    "spo2": {
+      "enabled": true,
+      "i2c_address": 87,
+      "simulation_mode": true
+    },
+    "activity": {
+      "enabled": true,
+      "i2c_address": 106,
+      "simulation_mode": true
+    }
+  },
+  
+  "model_dir": "models",
+  "log_level": "INFO",
+  "sensor_sampling_interval": 1.0,
+  
+  "transmission": {
+    "batch_size": 10,
+    "interval_seconds": 30,
+    "encryption_enabled": true
+  },
+  
+  "federated_learning": {
+    "update_interval_hours": 24,
+    "min_samples_for_update": 100,
+    "privacy_budget": 1.0,
+    "noise_multiplier": 0.1
+  },
+  
+  "encryption": {
+    "key": "development-key-change-in-production",
+    "algorithm": "AES-256-GCM"
+  },
+  
+  "monitoring": {
+    "health_check_interval": 60,
+    "metrics_collection": true,
+    "log_retention_days": 7
+  }
+}
